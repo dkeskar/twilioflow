@@ -1,0 +1,31 @@
+<%% 
+press_keys = @<%= file_name %>.accepts.keys
+action, method = @<%= file_name %>.id ? ["/<%= file_path %>/#{@<%= file_name %>.id}", :put] : ["/<%= file_path %>", :post]
+-%>
+<%% form_tag(action, {:method => method}) do -%>
+<%%= hidden_field_tag :id, @<%= file_name %>.id %>
+<%% if press_keys.include?('#') -%>
+  <%%= text_field_tag "Digits" %>
+  <%%= submit_tag "#" %>
+  <%%- press_keys.delete('#') -%>
+<%% end -%>
+<%% 
+if press_keys.is_a?(Array)
+  press_keys.each do |digit|  
+    next if digit == '#'
+    if digit.is_a?(String) and (any = digit.match(/\.(\d|\:\w+)/))
+      keys = if any[1] =~ /\d/
+        any[1].to_i
+      elsif any[1] =~ /\:(\w+)/
+        @<%= file_name %>.send("#{$1.to_sym}")
+      end
+      keys.times do |ix| -%>
+        <%%= submit_tag ix+1, :name => :Digits %>    
+      <%% end -%>
+      <%% next -%>
+      <%% else -%>
+        <%%= submit_tag digit, :name => :Digits %>
+      <%% end -%>
+  <%% end -%>
+<%% end -%>
+<%% end -%>

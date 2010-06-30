@@ -1,0 +1,20 @@
+# The account sid and phone number are necessary to get started 
+# and respond to Twilio POST calls. 
+# The auth_token is required if your controller calls Twilio REST API. 
+#
+development: 
+	account_sid: 
+  auth_token: 
+  phone_number: 
+	
+test: 
+	account_sid: 
+  auth_token: 
+  phone_number: 
+	
+production: 
+	account_sid: 
+  auth_token: 
+  phone_number: 
+	
+  

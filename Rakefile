@@ -9,7 +9,7 @@ begin
     gem.description = %Q{TODO: longer description of your gem}
     gem.email = "dkeskar@memamsa.com"
     gem.homepage = "http://github.com/dkeskar/twilioflow"
-    gem.authors = ["Dhananjay Keskar"]
+    gem.authors = ["Dhananjay Keskar, Memamsa LLC"]
     gem.add_development_dependency "thoughtbot-shoulda"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
