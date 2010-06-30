@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "twilioflow"
     gem.summary = %Q{Rails plugin for Twilio telephony apps}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.description = %Q{Twilioflow provides a Workflow model, Ruby specifiers for voice responses and RESTful controllers that act on Twilio request parameters to effect state transitions and automatically generate TwiML Response XML.}
     gem.email = "dkeskar@memamsa.com"
     gem.homepage = "http://github.com/dkeskar/twilioflow"
     gem.authors = ["Dhananjay Keskar, Memamsa LLC"]

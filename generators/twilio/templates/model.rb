@@ -4,16 +4,16 @@ class <%= class_name %> < ActiveRecord::Base
   workflow do 
     state :hello do 
       say "Twilio Gorillas. Wasssaaap!"
-      prompt 1, "If you are an existing primate", :go => :existing
-      prompt 2, "For evolved primates", :go => :evolved
-      prompt 9, "To end this call", :go => :goodbye
+      prompt 1, "If you are a jungle-dweller, press 1", :primal, :go => :jungle_dweller
+      prompt 2, "Captured primates, please press 2", :captured, :go => :zoo_habitant
+      press 9, "To end this call, press 9", :go => :goodbye
     end
     
-    state :existing do 
-      say :vocalize
+    state :jungle_dweller do 
+      say :growl
     end
     
-    state :evolved do 
+    state :zoo_habitant do 
       say :greetings
     end
     
@@ -23,10 +23,10 @@ class <%= class_name %> < ActiveRecord::Base
   end
   
   def greetings
-    "Customized greeting"
+    "Greetings. We come in peace."
   end
   
-  def vocalize
+  def growl
     "Please listen carefully to this recorded growl"
   end
   

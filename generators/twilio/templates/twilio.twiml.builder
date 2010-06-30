@@ -1,5 +1,5 @@
 
-action = "/<%= file_path %>/twilio/do.twiml"
+action = "/<%= plural_name %>/twilio/do.twiml"
 keys = @<%= file_name %>.accepts
 says = @<%= file_name %>.says
 numDigits = (keys and not keys['#']) ? "1" : ""

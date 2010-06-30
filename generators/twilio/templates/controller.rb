@@ -1,6 +1,6 @@
 require 'twiliolib'
 
-class <%= plural_name %>Controller < ApplicationController
+class <%= class_name.pluralize %>Controller < ApplicationController
   layout nil
 
 	class TwilioError < StandardError

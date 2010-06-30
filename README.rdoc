@@ -1,18 +1,40 @@
 = twilioflow
 
-Description goes here.
+Rails plugin for state machine driven interactions with Twilio telephony API.
+
+Twilioflow provides: 
+
+1. A Workflow approach for keeping your business logic inside models
+2. Concise Ruby way for specifying voice responses and key press actions within states
+3. Clean and RESTful controllers that understand Twilio requests. 
+4. Automatic generation of TwiML <Response> based on current interaction state
+5. HTML scaffolding to quickly test your interactions in the browser. 
+
+== Quickstart 
+
+1. ruby script/generate twilio interaction
+2. Add your custom state machines to interaction.rb
+3. Test your interactions with http://localhost:3000/interactions
+4. Update config/twilio.yml with your Twilio account sid, and phone number
+5. Call your Twilio phone number and see it work with Twilio
+
+== Status & Improvements
+
+The Workflow, state machine transitions, and TwiML generation have been well tested. The Rails plugin has been smoke-tested. The Gem functionality has not been exercised yet. 
+
+Twilioflow can be improved to have richer, more concise state machine specifiers, including additional Twilio Verbs. The generated TwiML can benefit from better Gather/Say nesting support. The plugin can incorporate examples of calling the Twilio REST API. It would be good if the Twilio Quick Start examples can be embedded or manifested with the Twilioflow plugin. RSpec or other tests would be nice too. 
+
+If you spot errors or omissions, please let me know. 
 
 == Note on Patches/Pull Requests
  
 * Fork the project.
 * Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but
-   bump version in a commit by itself I can ignore when I pull)
+* Add tests for it, so I don't unintentionally break anything in a future version.
+* Commit, avoid changing rakefile, version, or history.
 * Send me a pull request. Bonus points for topic branches.
 
 == Copyright
 
-Copyright (c) 2010 Dhananjay Keskar. See LICENSE for details.
+Copyright (c) 2010 Dhananjay Keskar, Memamsa LLC. See LICENSE for details.
+http://memamsa.com

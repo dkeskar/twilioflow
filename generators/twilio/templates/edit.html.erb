@@ -1,6 +1,28 @@
+<style type="text/css">
+	.state_description {
+		border: 1px dotted gray;
+		font-size: xx-small;
+		font-family: Arial, sans-serif;
+	}	
+</style>
+<div id="state_info" class="state_description">
+  <h1><%%= @<%= file_name %>.current_state.name %></h1>
+  <%% if pressings = @<%= file_name %>.current_state.pressings -%>
+  <ul>
+    <%% pressings.each_pair do |key, evd| -%>
+      <li><%%= key %> &#x2192; <%%= evd.describe %></li>
+    <%% end -%>
+  </ul>
+  <%% end -%>
+</div>
+<div id="state_says">
+  <%% @<%= file_name %>.says.each do |sentence| -%>
+  <p><%%= sentence %></p>
+  <%% end -%>
+</div>
 <%% 
 press_keys = @<%= file_name %>.accepts.keys
-action, method = @<%= file_name %>.id ? ["/<%= file_path %>/#{@<%= file_name %>.id}", :put] : ["/<%= file_path %>", :post]
+action, method = @<%= file_name %>.id ? ["/<%= plural_name %>/#{@<%= file_name %>.id}", :put] : ["/<%= plural_name %>", :post]
 -%>
 <%% form_tag(action, {:method => method}) do -%>
 <%%= hidden_field_tag :id, @<%= file_name %>.id %>
