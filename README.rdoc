@@ -12,39 +12,39 @@ Twilioflow provides:
 
 For example, here is the demo interaction.
 
-class Interaction < ActiveRecord::Base
-  include Workflow
+  class Interaction < ActiveRecord::Base
+    include Workflow
   
-  workflow do 
-    state :hello do 
-      say "Twilio Gorillas. Wasssaaap!"
-      prompt 1, "If you are a jungle-dweller, press 1", :primal, :go => :jungle_dweller
-      prompt 2, "Captured primates, please press 2", :captured, :go => :zoo_habitant
-      press 9, "To end this call, press 9", :go => :goodbye
-    end
+    workflow do 
+      state :hello do 
+        say "Twilio Gorillas. Wasssaaap!"
+        prompt 1, "If you are a jungle-dweller, press 1", :primal, :go => :jungle_dweller
+        prompt 2, "Captured primates, please press 2", :captured, :go => :zoo_habitant
+        press 9, "To end this call, press 9", :go => :goodbye
+      end
     
-    state :jungle_dweller do 
-      say :growl
-    end
+      state :jungle_dweller do 
+        say :growl
+      end
     
-    state :zoo_habitant do 
-      say :greetings
-    end
+      state :zoo_habitant do 
+        say :greetings
+      end
     
-    state :goodbye do 
-      say "Goodbye"
+      state :goodbye do 
+        say "Goodbye"
+      end
     end
+  
+    # Custom method/handlers for :greetings and :growl
+    def growl
+      "Please listen carefully to this recorded growl"
+    end
+  
+    # Generated Interaction#says and Interaction#accepts
+  
+    # Other model methods
   end
-  
-  # Custom method/handlers for :greetings and :growl
-  def growl
-    "Please listen carefully to this recorded growl"
-  end
-  
-  # Generated Interaction#says and Interaction#accepts
-  
-  # Other model methods
-end
 
 == Quickstart 
 
