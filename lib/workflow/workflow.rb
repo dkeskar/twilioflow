@@ -1,4 +1,5 @@
-
+# http://github.com/geekq/workflow
+# 
 module Workflow
 
   class Specification

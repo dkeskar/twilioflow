@@ -3,17 +3,17 @@
 # The auth_token is required if your controller calls Twilio REST API. 
 #
 development: 
-	account_sid: 
+  account_sid: 
   auth_token: 
   phone_number: 
 	
 test: 
-	account_sid: 
+  account_sid: 
   auth_token: 
   phone_number: 
 	
 production: 
-	account_sid: 
+  account_sid: 
   auth_token: 
   phone_number: 
 	
