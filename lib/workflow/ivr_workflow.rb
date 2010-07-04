@@ -87,6 +87,11 @@ end
 # Thus, each state now has a set of 
 #
 Workflow::Specification.class_eval do 
+  # Specifies the text to speak when entering the enclosing state. 
+  # There can be only one say statement for the state. If there are multiple
+  # say statements, only the sentences from the last one are kept. 
+  # Use #prompt to add text to speak associated with key presses.  
+  # 
   def say(*sentences)
     @scoped_state.sayings = sentences
   end
