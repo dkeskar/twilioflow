@@ -10,42 +10,6 @@ Twilioflow provides:
 4. Automatic generation of TwiML <Response> based on current interaction state
 5. HTML scaffolding to quickly test your interactions in the browser. 
 
-For example, here is the demo interaction.
-
-  class Interaction < ActiveRecord::Base
-    include Workflow
-  
-    workflow do 
-      state :hello do 
-        say "Twilio Gorillas. Wasssaaap!"
-        prompt 1, "If you are a jungle-dweller, press 1", :primal, :go => :jungle_dweller
-        prompt 2, "Captured primates, please press 2", :captured, :go => :zoo_habitant
-        press 9, "To end this call, press 9", :go => :goodbye
-      end
-    
-      state :jungle_dweller do 
-        say :growl
-      end
-    
-      state :zoo_habitant do 
-        say :greetings
-      end
-    
-      state :goodbye do 
-        say "Goodbye"
-      end
-    end
-  
-    # Custom method/handlers for :greetings and :growl
-    def growl
-      "Please listen carefully to this recorded growl"
-    end
-  
-    # Generated Interaction#says and Interaction#accepts
-  
-    # Other model methods
-  end
-
 == Quickstart 
 
 1. ruby script/generate twilio interaction
@@ -53,6 +17,20 @@ For example, here is the demo interaction.
 3. Test your interactions with http://localhost:3000/interactions
 4. Update config/twilio.yml with your Twilio account sid, and phone number
 5. Call your Twilio phone number and see it work with Twilio
+
+== Example 
+
+Here is a detailed example outlining various aspects of the state machine specifiers.
+
+http://github.com/dkeskar/twilioflow/blob/master/example.rb
+
+== Interaction Model 
+
+The model (e.g. Interaction) encompasses the state machine, voice responses, key presses and transition decisions. The controller (e.g. InteractionsController) provides a set of RESTful methods for HTML testing within the browser and a twilio handler (e.g. /interactions/twilio/do.twiml). 
+
+The controller includes generated code for finding the required model object, providing the voice responses appropriate to its current state and responding to key presses. The model includes several generated methods (#says, #accepts, #respond! and #decide!) to enable the controller interaction. 
+
+Finally, the generated views (edit.html.erb and twilio.twiml.builder) create the appropriate response, readying the interaction for the next state. 
 
 == Status & Improvements
 
